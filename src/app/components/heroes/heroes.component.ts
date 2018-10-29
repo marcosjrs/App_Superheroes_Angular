@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HeroesComponent implements OnInit {
   heroes$:Observable<Heroe[]>;
+  termino:string;
 
   constructor(private heroesSvc:HeroesService, private route:ActivatedRoute) { }
 
@@ -18,8 +19,9 @@ export class HeroesComponent implements OnInit {
     this.heroes$ = this.heroesSvc.getHeroes();
     const termino = this.route.params.subscribe(
       (parametro)=>{
-        if(parametro["termino"]){
-          this.heroes$ = this.heroesSvc.buscarHeroes(parametro["termino"]);
+        this.termino = parametro["termino"];
+        if(this.termino){
+          this.heroes$ = this.heroesSvc.buscarHeroes(this.termino);
         }else{
           this.heroes$ = this.heroesSvc.getHeroes();
         }
