@@ -10,6 +10,10 @@ export class HeroesService {
 
   constructor() { }
 
+  getHero(index):Observable<Heroe>{
+    return of(Heroes[index]);
+  }
+
   getHeroes():Observable<Heroe[]> {
     return of(Heroes); //con "of" devolverá un observable con el array de Heroe.js
   }
