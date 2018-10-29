@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'heroes', component: HeroesComponent },
+  { path: 'buscar/:termino', component: HeroesComponent },
   { path: 'heroe/:id', component: HeroeComponent },
   { path: '**', redirectTo: 'home' }
 ]
